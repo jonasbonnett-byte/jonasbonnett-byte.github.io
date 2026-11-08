@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta property="og:type" content="article"><meta property="og:url" content="https://jonas-bonnett.netlify.app/case-study-03.html"><meta property="og:title" content="Case Study 03 — Local AI Agent on a $0 Budget | Jonas Bonnett"><meta property="og:description" content="A private AI assistant running entirely on a laptop — Ollama + n8n, memory, Calculator and Wikipedia tools, proven local with the Wi-Fi off. $0, no cloud, no subscription.">
+<title>Case Study 03 — Local AI Agent on a $0 Budget | Jonas Bonnett</title>
+<meta name="description" content="Case Study 03: a local AI agent built on a laptop for $0 — Ollama + n8n, with memory and tools, proven local by a Wi-Fi-off test. By Jonas Bonnett.">
+<link rel="stylesheet" href="style.css"></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<nav aria-label="Primary"><div class="in"><a class="logo" href="index.html#top">JONAS<span>.</span>BONNETT</a><button id="menuBtn" aria-expanded="false" aria-controls="navlist">Menu</button>
+<ul id="navlist"><li><a href="index.html#about">About</a></li><li><a href="index.html#journey">Journey</a></li><li><a href="index.html#experience">Experience</a></li><li><a href="index.html#testimonials">Recommendations</a></li><li><a href="index.html#masters">Masters</a></li><li><a href="index.html#projects">Projects</a></li><li><a href="index.html#case-studies">Case Studies</a></li><li><a href="index.html#drawings">Drawing Samples</a></li><li><a href="index.html#training">Training</a></li><li><a href="index.html#samples">Work Samples</a></li><li><a href="index.html#certs">Certifications</a></li><li><a href="index.html#skills">Skills</a></li><li><a href="index.html#volunteer">Leadership</a></li><li><a href="index.html#contact">Contact</a></li></ul></div></nav>
+<main id="main">
+<section><div class="wrap">
+<p><a href="index.html#case-studies">&larr; All case studies</a></p>
+<h2><small>Case Study 03</small>Local AI Agent on a $0 Budget</h2>
+<div class="card"><p><b>Author:</b> Jonas Bonnett<br><b>Published:</b> October 26, 2026<br><b>Built:</b> October 24, 2026 (one night session)<br><b>Stack:</b> Ollama 0.40.10 + qwen3.5:4b (3.3 GB) + n8n 2.44.6, on an ASUS TUF laptop (Ryzen 5, 16 GB RAM)<br><b>Cost:</b> $0 — no cloud account, no paid API key, no subscription</p></div>
+
+<h3>The problem</h3>
+<p>Wanted a private AI assistant that runs entirely on his own laptop — no data leaving the machine, no monthly fee, no dependence on a cloud provider — with real agent behavior: memory, tools, and a workflow engine, not just a chatbot window.</p>
+
+<h3>What was built</h3>
+<p>A published n8n workflow (&ldquo;Jdogg Rockstar&rdquo;) wired to a local language model:</p>
+<ul>
+<li><b>Chat Trigger &rarr; AI Agent &rarr; Edit Fields (output passthrough) &rarr; chat reply</b></li>
+<li>Agent sub-nodes: Ollama Chat Model (qwen3.5:4b) + Simple Memory (context window 5) + Calculator tool + Wikipedia tool</li>
+<li>System prompt: a local assistant running on his laptop via Ollama, not a cloud service</li>
+</ul>
+
+<h3>How it was proven (tests, all passed)</h3>
+<ul>
+<li><b>Local proof:</b> Wi-Fi turned OFF — the model still answered. Computation is on the laptop, not in the cloud.</li>
+<li><b>Agent run:</b> Chat message through n8n to the local model and back — &ldquo;AI Agent Success,&rdquo; ~12 seconds, ~76 tokens.</li>
+<li><b>Memory:</b> Told it &ldquo;My name is Jdogg Rockstar,&rdquo; then asked &ldquo;What is my name?&rdquo; — it answered &ldquo;Your name is Jdogg Rockstar!&rdquo;</li>
+<li><b>Tool use (math):</b> &ldquo;What is 247 times 38?&rdquo; — answered 9386, exact, via the Calculator tool.</li>
+<li><b>Tool use (facts):</b> &ldquo;Look it up on Wikipedia: how many islands are in the Philippines?&rdquo; — answered ~7,641, quoting real fetched article text.</li>
+<li><b>Output chain:</b> Edit Fields pass-through executed clean; the chat reply carried the answer end to end.</li>
+<li><b>Published:</b> workflow flipped to Active — the agent runs on its own, no editor needed.</li>
+</ul>
+
+<h3>Problems solved along the way</h3>
+<ul>
+<li>n8n was installed but not running (it does not auto-start on boot) — restarted from the terminal.</li>
+<li>n8n&rsquo;s newer editor redirects to a paid Assistant page — dismissed it; the Assistant needs a paid API key and was skipped under the $0 rule.</li>
+<li>The Ollama connection first failed with ECONNREFUSED even though Ollama was running — root cause was Windows resolving <code>localhost</code> to IPv6 while Ollama listens on IPv4. Fix: Base URL <code>http://127.0.0.1:11434</code>.</li>
+<li>Open WebUI could not install: it requires Python 3.11/3.12 and the laptop has 3.13; Docker was not installed. Deferred honestly instead of forcing it — the Codex app already served as the local chat window.</li>
+</ul>
+
+<h3>Honest limits (stated, not hidden)</h3>
+<ul>
+<li>The 4B model is slow (~1 minute for long answers) and its identity answers are unreliable — asked where it runs, it sometimes repeats its factory cloud story or emits a stray tool-call code. That is a small-model limitation, documented, not a setup failure.</li>
+<li>A second local model (llama3.2:latest, 2.0 GB) is already on the machine for future comparison tests.</li>
+</ul>
+
+<h3>Skills this demonstrates</h3>
+<p>Local LLM deployment and model selection for constrained hardware, workflow automation, systems integration across three separate tools, methodical troubleshooting (port conflicts, IPv6 vs IPv4, version constraints), and shipping a working system on a zero budget in a single session.</p>
+
+<h3>What this is not</h3>
+<p>This is not a claim of cloud-scale AI expertise, and no employer-facing version of this document should imply one. It is proof of a real, working, local system built by hand — verifiable by running it on the laptop.</p>
+
+<p style="margin-top:30px"><a class="btn" href="index.html#case-studies">&larr; Back to case studies</a> <a class="btn o" href="Jonas-Bonnett-Resume.pdf" download>Download Resume (PDF)</a></p>
+</div></section>
+</main>
+<footer>Jonas Bonnett — Engineering CAD Designer · San Diego, CA · <a href="index.html#contact">Contact</a></footer>
+<script>const mb=document.getElementById('menuBtn'),nl=document.getElementById('navlist');mb.onclick=()=>{const o=nl.classList.toggle('open');mb.setAttribute('aria-expanded',o)};nl.querySelectorAll('a').forEach(a=>a.onclick=()=>nl.classList.remove('open'));</script>
+</body></html>
