@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta property="og:type" content="article"><meta property="og:url" content="https://jonasbonnett-byte.github.io/project-scripted-cad.html"><meta property="og:title" content="Scripted CAD — FreeCAD + Python | Jonas Bonnett"><meta property="og:description" content="Models written as Python, not clicked in a GUI: parametric FreeCAD scripts that export STEP, STL, DXF and dimensioned drawings — a revision is a changed number, not a rebuild. $0, open-source, commercial use OK.">
+<title>Scripted CAD — FreeCAD + Python | Jonas Bonnett</title>
+<meta name="description" content="Scripted CAD by Jonas Bonnett: parametric FreeCAD models written in Python — STEP, STL, DXF and dimensioned drawings from code. $0, open-source, commercial use OK.">
+<link rel="stylesheet" href="style.css">
+<style>figure{margin:0 0 18px}figure img{max-width:100%;height:auto;display:block}figcaption{font-size:.9em;opacity:.85;margin-top:6px}</style></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<nav aria-label="Primary"><div class="in"><a class="logo" href="index.html#top">JONAS<span>.</span>BONNETT</a><button id="menuBtn" aria-expanded="false" aria-controls="navlist">Menu</button>
+<ul id="navlist"><li><a href="index.html#about">About</a></li><li><a href="index.html#journey">Journey</a></li><li><a href="index.html#experience">Experience</a></li><li><a href="index.html#testimonials">Recommendations</a></li><li><a href="index.html#masters">Masters</a></li><li><a href="index.html#projects">Projects</a></li><li><a href="index.html#case-studies">Case Studies</a></li><li><a href="index.html#drawings">Drawing Samples</a></li><li><a href="index.html#training">Training</a></li><li><a href="index.html#samples">Work Samples</a></li><li><a href="index.html#certs">Certifications</a></li><li><a href="index.html#skills">Skills</a></li><li><a href="index.html#volunteer">Leadership</a></li><li><a href="index.html#contact">Contact</a></li></ul></div></nav>
+<main id="main">
+<section><div class="wrap">
+<p><a href="index.html#projects">&larr; All projects</a></p>
+<h2><small>Project · November 2026</small>Scripted CAD — FreeCAD + Python</h2>
+<div class="card"><p><b>Author:</b> Jonas Bonnett<br><b>Method:</b> Models written as Python scripts, run under FreeCAD&rsquo;s console (freecadcmd, FreeCAD 1.1.3) — parametric, with STEP AP214 export, STL, DXF, and dimensioned ANSI B drawings<br><b>Stack:</b> FreeCAD 1.1.3 · LibreCAD 2.2 · OpenSCAD 2021.01 · KiCad 7.0 · SolveSpace 3.1 · Blender 4.0<br><b>Cost:</b> $0 — all open-source, commercial use OK<br><b>Result:</b> A revision is a changed number, not a rebuild — the same part, redrawn from code, in seconds</p></div>
+
+<h3>The method</h3>
+<p>Most CAD work is clicked together in a graphical interface: every dimension typed by hand, every revision a manual rebuild. Jonas Bonnett writes the model as code instead. A Python script defines the part — its dimensions, its pattern, its features — and FreeCAD&rsquo;s console builds it: solid model, STEP file with named components preserved, STL for printing, DXF flat pattern, and a dimensioned drawing on his ANSI B sheet. Change one number in the script and the whole chain rebuilds. That is the point: the model is a program, and a revision is an edit, not a redo.</p>
+
+<figure><img src="figs/longboard-assembly-render.jpg" alt="Exploded longboard assembly rendered from the scripted FreeCAD model: deck, grip tape, wheels, bearings and hardware separated along the assembly axis" loading="lazy"><figcaption>The longboard assembly, exploded — every part in this render was built by a Python script, not clicked into place.</figcaption></figure>
+
+<h3>The stack — one role each</h3>
+<ul>
+<li><b>FreeCAD 1.1.3</b> — 3D modeling, TechDraw drawings, STEP / STL / DXF export. The workhorse.</li>
+<li><b>LibreCAD 2.2</b> — 2D drafting.</li>
+<li><b>OpenSCAD 2021.01</b> — code-first parametric parts.</li>
+<li><b>KiCad 7.0</b> — PCB work.</li>
+<li><b>SolveSpace 3.1</b> — constraint-based sketching and mechanisms.</li>
+<li><b>Blender 4.0</b> — rendering the models so a client can see the part before it exists.</li>
+</ul>
+<p>All six are open-source with commercial use OK, and the whole stack costs $0. Two tools are deliberately <b>not</b> used for paid work: Fusion 360 Personal (its license is non-commercial) and Onshape free (public documents only).</p>
+
+<h3>Proof 1 — The longboard assembly</h3>
+<p>A complete 36-inch cruiser longboard, modeled end to end in code: deck, grip tape, risers, baseplates, hangers, kingpins, bushings, axles, wheels, bearings and hardware — <b>50 components</b> in one FreeCAD assembly, exported as STEP AP214 with named components preserved and verified. The drawing package is five sheets (LB-001 to LB-005) on his Rev B template: assembly exploded view, deck, truck with sections, wheel/bearing/hardware, and a fifth sheet of balloons and parts list. One honest note, printed on the drawings themselves: the truck is modeled single-kingpin while the real Gullwing Sidewinder II is double-kingpin, and the specs are proposed, pending approval — the sheets carry SAMPLE markings and SME-review flags until that closes.</p>
+
+<figure><img src="figs/longboard-sheet-lb001.jpg" alt="Sheet LB-001 of the longboard drawing package: assembly exploded view with balloons, parts list, title block and assembly sequence" loading="lazy"><figcaption>Sheet LB-001 — the assembly exploded view, parts list, and assembly sequence, drawn from the scripted model.</figcaption></figure>
+
+<h3>Proof 2 — The freelance parts library</h3>
+<p>Eleven numbered parts and assemblies, each built by its own script, each shipping as a FreeCAD file plus STEP and STL — the most-requested freelance CAD work, ready to show a client. A few, with volumes verified from the model files:</p>
+<ul>
+<li><b>01 — L-bracket with gusset</b>, 60 &times; 60 &times; 80 mm, 5 mm wall, 4&times; &Oslash;8 holes — 43,494.7 mm&sup3;</li>
+<li><b>02 — PCB enclosure</b>, body 100 &times; 70 &times; 45 mm with 4&times; M3 bosses plus lid — body 57,052.8 mm&sup3;</li>
+<li><b>03 — Wall cable holder</b>, J-hook — 13,922.9 mm&sup3;</li>
+<li><b>05 — Phone stand</b>, base 90 &times; 80 mm, back support tilted 25&deg; — 47,436.1 mm&sup3;</li>
+<li><b>08 — Hex standoff spacer</b> — 2,691.8 mm&sup3;</li>
+<li><b>09 — Mounting plate</b> — 53,858.4 mm&sup3;</li>
+<li><b>06 — Pouch cell holder assembly</b> and <b>07 — Spray dryer enclosure assembly</b> — built from illustrative dimensions, labeled as such (see Honest limits)</li>
+</ul>
+
+<h3>Proof 3 — The CADMASTER starter plate</h3>
+<p>The smallest proof, and the most useful: a parametric mounting plate, 100 &times; 60 &times; 10 mm, with 4&times; &Oslash;8 holes on an 80 &times; 40 pattern and a &Oslash;20 center bore. Every dimension is driven by a <b>Parameters</b> spreadsheet — change a value, the model rebuilds, and the 11 associative dimensions on the drawing follow. It is the template every new part starts from: open the starter, save as a new name, change the Parameters, and the drawing stays correct.</p>
+
+<h3>Honest limits</h3>
+<p>FreeCAD is not Creo, and this page does not pretend otherwise. Three limits, stated plainly:</p>
+<ul>
+<li><b>No one-click auto-dimension in TechDraw.</b> Dimensions are placed deliberately, one at a time — slower to draw, but every dimension is a choice.</li>
+<li><b>The console DXF exporter drops all text.</b> DXF files are written directly from the SVG instead, so the text survives.</li>
+<li><b>Two assemblies use illustrative dimensions.</b> The pouch cell holder and spray dryer enclosure were built from a video that gives no dimensions — every number there is a representative sample, not the production design, and the real numbers are flagged for SME verification. The gearbox in the library likewise uses a simplified rectangular tooth profile — representative, not a true involute.</li>
+</ul>
+
+<h3>Why it&rsquo;s here</h3>
+<p>The through-line of his work is the same everywhere on this site: document the thing, then improve the process that builds the thing. Scripted CAD is that through-line applied to his own tools — the model is a program, the drawing follows the model, and the revision is an edit. It is the same instinct as <a href="project-local-ai-agent.html">JDOGG ROCKSTAR</a>, his local AI agent: he builds systems and automates the tools, including his own CAD work.</p>
+
+<h3>Skills this demonstrates</h3>
+<p>Parametric modeling from code, FreeCAD Python scripting and console automation, STEP / STL / DXF interchange with named components intact, dimensioned drawing production to ASME Y14.5, and shipping a zero-cost CAD stack that a client can verify file by file.</p>
+
+<p style="margin-top:30px"><a class="btn" href="index.html#projects">&larr; Back to projects</a> <a class="btn o" href="Jonas-Bonnett-Resume.pdf" download>Download Resume (PDF)</a></p>
+</div></section>
+</main>
+<footer>Jonas Bonnett — Engineering CAD Designer · San Diego, CA · <a href="index.html#contact">Contact</a></footer>
+<script>const mb=document.getElementById('menuBtn'),nl=document.getElementById('navlist');mb.onclick=()=>{const o=nl.classList.toggle('open');mb.setAttribute('aria-expanded',o)};nl.querySelectorAll('a').forEach(a=>a.onclick=()=>nl.classList.remove('open'));</script>
+</body></html>
