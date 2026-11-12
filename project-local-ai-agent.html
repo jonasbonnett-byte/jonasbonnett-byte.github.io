@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta property="og:type" content="article"><meta property="og:url" content="https://jonasbonnett-byte.github.io/project-local-ai-agent.html"><meta property="og:title" content="JDOGG ROCKSTAR — Local AI Agent | Jonas Bonnett"><meta property="og:description" content="A private AI assistant running entirely on his own laptop: Ollama + n8n, memory, Calculator and Wikipedia tools — proven local with the Wi-Fi off. No cloud, no subscription.">
+<title>JDOGG ROCKSTAR — Local AI Agent | Jonas Bonnett</title>
+<meta name="description" content="JDOGG ROCKSTAR: a local AI agent built by Jonas Bonnett on his own laptop — Ollama + n8n, memory and tools, proven local by a Wi-Fi-off test. No cloud, no subscription.">
+<link rel="stylesheet" href="style.css">
+<style>figure{margin:0 0 18px}figure img{max-width:100%;height:auto;display:block}figcaption{font-size:.9em;opacity:.85;margin-top:6px}</style></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<nav aria-label="Primary"><div class="in"><a class="logo" href="index.html#top">JONAS<span>.</span>BONNETT</a><button id="menuBtn" aria-expanded="false" aria-controls="navlist">Menu</button>
+<ul id="navlist"><li><a href="index.html#about">About</a></li><li><a href="index.html#journey">Journey</a></li><li><a href="index.html#experience">Experience</a></li><li><a href="index.html#testimonials">Recommendations</a></li><li><a href="index.html#masters">Masters</a></li><li><a href="index.html#projects">Projects</a></li><li><a href="index.html#case-studies">Case Studies</a></li><li><a href="index.html#drawings">Drawing Samples</a></li><li><a href="index.html#training">Training</a></li><li><a href="index.html#samples">Work Samples</a></li><li><a href="index.html#certs">Certifications</a></li><li><a href="index.html#skills">Skills</a></li><li><a href="index.html#volunteer">Leadership</a></li><li><a href="index.html#contact">Contact</a></li></ul></div></nav>
+<main id="main">
+<section><div class="wrap">
+<p><a href="index.html#projects">&larr; All projects</a></p>
+<h2><small>Project · October 2026</small>JDOGG ROCKSTAR — Local AI Agent</h2>
+<div class="card"><p><b>Author:</b> Jonas Bonnett<br><b>Built:</b> October 24, 2026, on his own ASUS TUF laptop<br><b>Stack:</b> Ollama 0.40.10 running qwen3.5:4b on-device + n8n 2.44.6 workflow (id 6tWxogAtQJgh2URI), renamed &ldquo;JDOGG ROCKSTAR&rdquo; October 26, 2026, published and active<br><b>Cost:</b> $0 — no cloud, no paid API key, no subscription<br><b>Result:</b> A private AI assistant that runs entirely on the laptop — memory, tools, and a workflow engine, not just a chatbot window</p></div>
+
+<h3>The problem</h3>
+<p>Most people use AI through someone else&rsquo;s cloud. Jonas Bonnett wanted an assistant that runs entirely on his own laptop — no data leaving the machine, no monthly fee, no dependence on a cloud provider — with real agent behavior: memory, tools, and a workflow engine.</p>
+
+<h3>How it works</h3>
+<p>One published n8n workflow, &ldquo;JDOGG ROCKSTAR,&rdquo; wired to a local language model. The chain:</p>
+<ul>
+<li><b>&ldquo;When chat message received&rdquo;</b> trigger &rarr; <b>AI Agent</b> node &rarr; <b>Edit Fields</b> (output passthrough) &rarr; chat reply</li>
+<li>Agent sub-nodes: <b>Ollama Chat Model</b> (qwen3.5:4b) + <b>Simple Memory</b></li>
+<li>Tools: <b>Calculator</b> and <b>Wikipedia</b> — the agent can do math and look up facts, not just generate text</li>
+</ul>
+
+<figure><img src="figs/jdogg-rockstar-workflow.jpg" alt="n8n workflow graph for JDOGG ROCKSTAR: chat trigger into the AI Agent node with Ollama Chat Model and Simple Memory, Calculator and Wikipedia tools, then Edit Fields" loading="lazy"><figcaption>The workflow — chat trigger, AI Agent node with its model and memory, two tools, and the output passthrough.</figcaption></figure>
+
+<h3>The proof it runs local</h3>
+<p>The Wi-Fi-off test: with the Wi-Fi turned off, the model still answered. The computation is on the laptop, not in the cloud. That is the test that matters — everything else is a screenshot.</p>
+
+<figure><img src="figs/jdogg-rockstar-output.jpg" alt="The JDOGG ROCKSTAR workflow running, with the output panel showing the agent answering a question" loading="lazy"><figcaption>The agent running — a question in, an answer out, all on the laptop.</figcaption></figure>
+
+<h3>Honest limit</h3>
+<p>The 4B local model is fast and private, but its identity answers can be unreliable — asked where it runs, it sometimes repeats its factory cloud story. That is a small-model limitation, documented, not a setup failure.</p>
+
+<h3>Why it&rsquo;s here</h3>
+<p>The through-line of his work is the same everywhere on this site: document the thing, then improve the process that builds the thing. This time the thing is the assistant itself — built, run, and shipped by one person, on a laptop. The full write-up, with every test passed and every problem solved along the way, is <a href="case-study-03.html">Case Study 03 — Local AI Agent on a $0 Budget</a>.</p>
+
+<h3>Skills this demonstrates</h3>
+<p>Local LLM deployment and model selection for constrained hardware, workflow automation, systems integration across separate tools, and shipping a working system on a zero budget in a single session.</p>
+
+<p style="margin-top:30px"><a class="btn" href="case-study-03.html">Read the full case study</a> <a class="btn" href="index.html#projects">&larr; Back to projects</a> <a class="btn o" href="Jonas-Bonnett-Resume.pdf" download>Download Resume (PDF)</a></p>
+</div></section>
+</main>
+<footer>Jonas Bonnett — Engineering CAD Designer · San Diego, CA · <a href="index.html#contact">Contact</a></footer>
+<script>const mb=document.getElementById('menuBtn'),nl=document.getElementById('navlist');mb.onclick=()=>{const o=nl.classList.toggle('open');mb.setAttribute('aria-expanded',o)};nl.querySelectorAll('a').forEach(a=>a.onclick=()=>nl.classList.remove('open'));</script>
+</body></html>
